@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 type CoinType = {
-  id: String | null
+  id: number
   rank: String | null
   // symbol: String | null
   name: String | null
@@ -15,7 +15,13 @@ type CoinType = {
   // explorer: String | null
 }
 export function App() {
-  const [coinsValue, setCoinsValue] = useState<CoinType[]>([])
+  const [coinsData, setCoinsData] = useState<CoinType[]>([
+    { id: 1, rank: '1', name: 'Bitcoin', priceUsd: '1' },
+    { id: 2, rank: '2', name: 'Ethereum', priceUsd: '2' },
+    { id: 3, rank: '3', name: 'Ripple', priceUsd: '3' },
+    { id: 4, rank: '4', name: 'Bitcoin Cash', priceUsd: '4' },
+  ])
+  console.log('coinsData', coinsData)
 
   async function getCoins() {
     const response = await fetch('https://api.coincap.io/v2/assets')
@@ -30,13 +36,17 @@ export function App() {
       <header>
         <h1>Crypto Currency Price Tracker</h1>
       </header>
-      <section>
-        <div className="tracker">bitcoin</div>
-        <div className="tracker">bitcoin</div>
-        <div className="tracker">bitcoin</div>
-        <div className="tracker">bitcoin</div>
-        <div className="tracker">bitcoin</div>
-      </section>
+      <ul>
+        {coinsData.map(function (coin) {
+          return (
+            <li key={coin.id}>
+              {coin.rank}
+              {coin.name}
+              {coin.priceUsd}
+            </li>
+          )
+        })}
+      </ul>
       <footer>Created by Amheiser</footer>
     </div>
   )
