@@ -59,14 +59,14 @@ export function App() {
           .map(function (coin) {
             return (
               <li className="coins" key={coin.id}>
-                {coin.symbol}
-                {coin.rank}: {coin.name}
-                {Math.round(coin.priceUsd * 100) / 100}
+                {coin.symbol}-{coin.rank}: {coin.name} ({Math.round(coin.priceUsd * 100) / 10000}$)
               </li>
             )
           })}
       </ul>
-      <footer>Created by Amheiser</footer>
+      <footer>
+        <p>Created by Amheiser</p>
+        </footer>
     </div>
   )
 }
