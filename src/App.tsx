@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react'
 
 type CoinType = {
   id: number
-  rank: String | null
+  rank: number
   symbol: String | null
   name: String | null
   supply: String | null
   maxSupply: String | null
   marketCapUsd: String | null
   volumeUsd24Hr: String | null
-  priceUsd: String | null
+  priceUsd: number
   changePercent24Hr: String | null
   vwap24Hr: String | null
   explorer: String | null
@@ -49,14 +49,17 @@ export function App() {
         <h2>{cycles}</h2>
       </header>
       <ul>
-        {coinsData.map(function (coin) {
-          return (
-            <li key={coin.id}>
-              {coin.name}
-              {coin.priceUsd}
-            </li>
-          )
-        })}
+        {coinsData
+          .filter((coin) => coin.rank <= 5)
+          .map(function (coin) {
+            return (
+              <li className="coins" key={coin.id}>
+                {coin.symbol}
+                {coin.rank}: {coin.name}
+                {Math.round(coin.priceUsd * 100) / 100}
+              </li>
+            )
+          })}
       </ul>
       <footer>Created by Amheiser</footer>
     </div>
