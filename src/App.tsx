@@ -17,6 +17,7 @@ type CoinType = {
 export function App() {
   const [coinsData, setCoinsData] = useState<CoinType[]>([])
   const [cycles, setCycles] = useState<number>(0)
+  // const [cycleCoinData, setCycleCoinData] = useState([])
   console.log('coinsData', coinsData)
 
   function loadCoinsData() {
@@ -25,8 +26,12 @@ export function App() {
       if (response.ok) {
         const coins = await response.json()
         setCoinsData(coins.data)
-        //more function to be added here
         console.log('coins', coins)
+        const track = localStorage.setItem(
+          'coinValue',
+          JSON.stringify(coins.priceUsd)
+        )
+        console.log(track)
       }
     }
     getCoins()
@@ -36,7 +41,7 @@ export function App() {
   useEffect(function () {
     const interval = setInterval(function () {
       setCycles((cycles) => cycles + 1)
-    }, 10000)
+    }, 60000)
     return () => clearInterval(interval)
   }, [])
 

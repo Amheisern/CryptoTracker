@@ -12,11 +12,31 @@
   --tangerine: #f99d1b;
 }
 
-html {
-  height: 100%;
-}
-
-body {
+div {
   margin: 0;
-  min-height: 100%;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  background: var(--asphalt);
+  color: var(--sun);
+}
+header h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+  padding-right: 3rem;
+}
+h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
 }
