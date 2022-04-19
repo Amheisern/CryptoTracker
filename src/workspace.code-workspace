@@ -1,0 +1,17 @@
+{
+  "folders": [
+	{
+		"path": ".."
+	},
+	{
+		"path": "..\\..\\Minesweeper"
+	},
+	{
+		"path": "..\\..\\ReactOneListClient"
+	},
+	{
+		"path": "..\\..\\Snowman"
+	}
+],
+  "settings": {}
+}
