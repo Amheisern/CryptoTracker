@@ -25,9 +25,10 @@ export function App() {
     async function getCoins() {
       const response = await fetch('https://api.coincap.io/v2/assets')
       if (response.ok) {
-        const coins = await response.json()
-        setCoinsData(coins.data)
-        console.log('coins', coins)
+        //destructed response with const coins = const {data}
+        const {data} = await response.json()
+        setCoinsData(data)
+        console.log('coins', data)
         }
       }
       getCoins()
