@@ -17,20 +17,8 @@ type CoinType = {
 export function App() {
   const [coinsData, setCoinsData] = useState<CoinType[]>([])
   const [cycles, setCycles] = useState<number>(0)
-  //  const [cycleCoinData, setCycleCoinData] = useState([2,3,5,4,5,6,7,8])
   console.log('coinsData', coinsData)
-// console.log('cycleCoinData', cycleCoinData)
-  // const valueArray: number[] = []
 
-  // function compareValue(currencies: number[]){
-  // // valueArray.push(currency.priceUsd)
-  // const valueArray = currencies.map (currency => {
-  //   return currency.priceUsd
-  // })
-  
-  // console.log('valueArray', valueArray)
-  // // console.log('currency', currency)
-// }
   function loadCoinsData() {
     async function getCoins() {
       const response = await fetch('https://api.coincap.io/v2/assets')
@@ -39,7 +27,6 @@ export function App() {
         const {data} = await response.json()
         setCoinsData(data)
         console.log('coins', data)
-        // compareValue(data)
         
         }
       }
