@@ -1,16 +1,19 @@
 {
   "folders": [
 	{
-		"path": ".."
-	},
-	{
-		"path": "..\\..\\Minesweeper"
+		"path": "..\\..\\tamagotchiFrontEnd"
 	},
 	{
 		"path": "..\\..\\ReactOneListClient"
 	},
 	{
-		"path": "..\\..\\Snowman"
+		"path": "..\\..\\TamagotchiAPI"
+	},
+	{
+		"path": ".."
+	},
+	{
+		"path": "..\\..\\NumberGuesser"
 	}
 ],
   "settings": {}
